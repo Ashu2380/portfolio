@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PROFILE } from '../data.js';
 
-export default function Footer() {
+export default function Footer({ minimal }) {
   const [showTop, setShowTop] = useState(false);
   useEffect(() => {
     const h = () => setShowTop(window.scrollY > 600);
@@ -12,7 +12,8 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-inner">
-        <p>© 2026 <strong>{PROFILE.name}</strong> · Built with discipline &amp; caffeine</p>
+        <p>© 2026 <strong>{PROFILE.name}</strong> · Built with discipline &amp; caffeine
+          {!minimal && <span> · <a href="#/admin" className="admin-link">Admin</a></span>}</p>
         <div className="social-row sm">
           <a href={PROFILE.github} target="_blank" rel="noopener" aria-label="GitHub"><i className="fab fa-github" /></a>
           <a href={PROFILE.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn"><i className="fab fa-linkedin-in" /></a>

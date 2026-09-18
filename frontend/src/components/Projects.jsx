@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PROJECTS } from '../data.js';
+import { PROJECTS as DEFAULT_PROJECTS } from '../data.js';
 import { Reveal } from '../hooks.jsx';
 
 const FILTERS = [
@@ -7,9 +7,10 @@ const FILTERS = [
   ['salesforce', 'Salesforce'], ['frontend', 'Frontend'],
 ];
 
-export default function Projects() {
+export default function Projects({ projects }) {
   const [filter, setFilter] = useState('all');
-  const list = PROJECTS.filter((p) => filter === 'all' || p.cat === filter);
+  const all = projects || DEFAULT_PROJECTS;
+  const list = all.filter((p) => filter === 'all' || p.cat === filter);
   return (
     <section id="projects" className="section">
       <div className="wrap">

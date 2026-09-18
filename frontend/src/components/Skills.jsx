@@ -1,14 +1,15 @@
-import { SKILLS } from '../data.js';
+import { SKILLS as DEFAULT_SKILLS } from '../data.js';
 import { Reveal, SkillBar } from '../hooks.jsx';
 
-export default function Skills() {
+export default function Skills({ skills }) {
+  const list = skills || DEFAULT_SKILLS;
   return (
     <section id="skills" className="section tint">
       <div className="wrap">
         <p className="kicker">— My toolbox</p>
         <h2 className="title">Skills that <span className="grad">ship products</span></h2>
         <div className="skill-grid">
-          {SKILLS.map((c, i) => (
+          {list.map((c, i) => (
             <Reveal key={c.title} delay={i * 80}>
               <article className="card skill-card">
                 <span className={`skill-ic ${c.cls}`}><i className={c.icon} /></span>
