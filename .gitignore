@@ -1,0 +1,12 @@
+# Build output
+backend/target/
+# H2 database files
+backend/data/
+*.mv.db
+*.lock.db
+# Logs
+*.log
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
