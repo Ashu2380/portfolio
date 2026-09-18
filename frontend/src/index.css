@@ -211,7 +211,7 @@ ul,ol{list-style:none}
 @media (min-width:640px){
   .proj-grid{grid-template-columns:repeat(2,1fr)}
   .skill-grid{grid-template-columns:repeat(2,1fr)}
-  .skill-grid .skill-card:last-child{grid-column:1/-1}
+  .skill-grid .skill-card:last-child, .skill-grid > *:last-child{grid-column:1/-1}
   .edu-grid{grid-template-columns:repeat(3,1fr)}
   .form .frow{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:repeat(4,1fr)}
@@ -222,7 +222,7 @@ ul,ol{list-style:none}
   .hero-grid{grid-template-columns:1.05fr .95fr;padding:56px 52px}
   .about-grid{grid-template-columns:1.25fr .75fr}
   .skill-grid{grid-template-columns:repeat(3,1fr)}
-  .skill-grid .skill-card:last-child{grid-column:auto}
+  .skill-grid .skill-card:last-child, .skill-grid > *:last-child{grid-column:auto}
   .proj-grid{grid-template-columns:repeat(3,1fr)}
   .contact-grid{grid-template-columns:.9fr 1.1fr}
   .menu-btn{display:none!important}

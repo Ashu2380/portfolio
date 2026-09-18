@@ -1,5 +1,10 @@
 # Build output
 backend/target/
+# Generated frontend bundle served by Spring Boot (rebuilt via ./build.sh)
+backend/src/main/resources/static/
+# Frontend
+frontend/node_modules/
+frontend/dist/
 # H2 database files
 backend/data/
 *.mv.db
