@@ -32,3 +32,16 @@ export async function adminSave(token, section, payload) {
   const j = await r.json();
   if (!r.ok || !j.ok) throw new Error(j.error || 'Save failed');
 }
+
+export async function adminUpload(token, file) {
+  const fd = new FormData();
+  fd.append('file', file);
+  const r = await fetch('/api/admin/upload', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: fd,
+  });
+  const j = await r.json();
+  if (!r.ok || !j.ok) throw new Error(j.error || 'Upload failed');
+  return j.url;
+}
