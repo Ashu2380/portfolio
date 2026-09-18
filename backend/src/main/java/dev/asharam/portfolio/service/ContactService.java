@@ -11,9 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ContactService {
 
   private final ContactMessageRepository repository;
+  private final EmailService emailService;
 
-  public ContactService(ContactMessageRepository repository) {
+  public ContactService(ContactMessageRepository repository, EmailService emailService) {
     this.repository = repository;
+    this.emailService = emailService;
   }
 
   @Transactional
@@ -27,6 +29,7 @@ public class ContactService {
                 req.subject().trim(),
                 req.message().trim(),
                 ip));
+    emailService.notifyOwner(req);
     return ContactResponse.success(saved.getPublicId(), repository.count());
   }
 }
